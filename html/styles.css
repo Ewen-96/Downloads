@@ -1,0 +1,167 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-right: 2rem;
+}
+
+.main-nav ul, .navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.main-nav a, .navigation a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover, .navigation a:hover {
+    color: #0078d7;
+}
+
+/* Styles spécifiques pour index.html */
+body.index-page .hero-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+body.index-page .btn-primary {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    margin-right: 1rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+body.index-page .btn-primary:hover {
+    background: #444;
+    transform: scale(1.05);
+}
+
+body.index-page .btn-secondary {
+    color: #000;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-right: 1rem;
+    border-bottom: 1px solid #000;
+    transition: border-bottom-color 0.3s ease;
+}
+
+body.index-page .btn-secondary:hover {
+    border-bottom-color: #444;
+}
+
+body.index-page .intro-text,
+body.index-page .sub-text,
+body.index-page .info-text {
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Styles spécifiques pour chatgpt.html */
+body.chatgpt-page main {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+body.chatgpt-page main h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #000;
+    text-align: center;
+}
+
+body.chatgpt-page section {
+    margin-bottom: 2rem;
+}
+
+body.chatgpt-page section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: #000;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+body.chatgpt-page section p,
+body.chatgpt-page section ul {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+body.chatgpt-page section ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+body.chatgpt-page section ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Styles spécifiques pour about.html */
+body.about-page main {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+body.about-page main h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #000;
+    text-align: center;
+}
+
+body.about-page main p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: #666;
+    border-top: 1px solid #ddd;
+}
