@@ -15,7 +15,7 @@ body {
 /* Header */
 .main-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 1rem 2rem;
     background-color: #f4f4f4;
@@ -23,10 +23,22 @@ body {
 }
 
 .logo {
+    display: flex; /* Active Flexbox */
+    align-items: center; /* Aligne les éléments verticalement au centre */
+    gap: 0.5rem; /* Ajoute un espacement entre le texte et l'image */
+}
+
+/* Style du texte dans le logo */
+.logo span {
     font-size: 1.5rem;
     font-weight: bold;
     color: #000;
-    margin-right: 2rem;
+}
+
+/* Style de l'image dans le logo */
+.logo-img {
+    width: 40px; /* Ajustez la largeur du logo selon vos besoins */
+    height: auto; /* Maintient le ratio d'aspect de l'image */
 }
 
 .main-nav ul, .navigation ul {
@@ -93,18 +105,37 @@ body.index-page .info-text {
 }
 
 /* Styles spécifiques pour chatgpt.html */
+/* Styles spécifiques pour chatgpt.html */
 body.chatgpt-page main {
     padding: 2rem;
     max-width: 800px;
     margin: 0 auto;
+    background-color: #f9f9f9; /* Ajout d'un fond clair */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre pour profondeur */
     text-align: left;
 }
 
-body.chatgpt-page main h1 {
+.content {
+    display: flex;
+    flex-direction: column; /* Les éléments s'empilent verticalement */
+    align-items: flex-start; /* Aligne les éléments à gauche */
+    gap: 1.5rem; /* Espacement entre les éléments */
+}
+
+h1 {
     font-size: 2.5rem;
-    margin-bottom: 1.5rem;
     color: #000;
+    margin-bottom: 1rem;
+    text-align: center; /* Centré uniquement pour le titre principal */
+}
+
+body.chatgpt-page main h1 p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #333;
     text-align: center;
+    font-weight: normal;
 }
 
 body.chatgpt-page section {
@@ -112,10 +143,10 @@ body.chatgpt-page section {
 }
 
 body.chatgpt-page section h2 {
-    font-size: 1.75rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
-    color: #000;
-    border-bottom: 2px solid #ddd;
+    color: #0078d7; /* Titre secondaire avec une couleur distinctive */
+    border-bottom: 2px solid #0078d7;
     padding-bottom: 0.5rem;
 }
 
@@ -124,16 +155,79 @@ body.chatgpt-page section ul {
     margin-top: 1rem;
     font-size: 1rem;
     color: #555;
+    line-height: 1.8; /* Meilleure lisibilité */
 }
 
 body.chatgpt-page section ul {
     list-style: disc;
     padding-left: 1.5rem;
+    margin-top: 1rem;
 }
 
 body.chatgpt-page section ul li {
     margin-bottom: 0.5rem;
 }
+/* Suppression ou harmonisation de l'encadré central */
+body.chatgpt-page main {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: transparent; /* Suppression de l'encadré gris */
+    border-radius: 0; /* Suppression des coins arrondis */
+    box-shadow: none; /* Suppression de l'ombre */
+    text-align: left;
+}
+
+/* Centrer l'image dans le conteneur */
+body.chatgpt-page main img {
+    display: block; /* Convertit l'image en bloc pour appliquer margin */
+    margin: 0 auto; /* Centre l'image horizontalement */
+    max-width: 100%; /* Assure que l'image ne dépasse pas la largeur du conteneur */
+    height: auto; /* Conserve le ratio de l'image */
+}
+
+/* Optionnel : ajuster l'apparence pour harmoniser le texte */
+body.chatgpt-page main p, 
+body.chatgpt-page main h1 {
+    text-align: center; /* Centre les textes également si nécessaire */
+}
+
+body.chatgpt-page section h2 {
+    color: #000; /* Ajuste la couleur du texte si besoin */
+}
+/* Boutons spécifiques à chatgpt.html */
+body.chatgpt-page .btn-primary {
+    display: inline-block;
+    background: #0078d7;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+body.chatgpt-page .btn-primary:hover {
+    background: #005bb5;
+    transform: scale(1.05);
+}
+
+body.chatgpt-page .btn-secondary {
+    display: inline-block;
+    color: #0078d7;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid #0078d7;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.chatgpt-page .btn-secondary:hover {
+    background: #0078d7;
+    color: #fff;
+}
+
 
 /* Styles spécifiques pour about.html */
 body.about-page main {

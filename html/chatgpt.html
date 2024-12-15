@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comment fonctionne ChatGPT</title>
     <link rel="stylesheet" href="styles.css">
-    
 </head>
+
 <body class="chatgpt-page">
     <header class="main-header">
-        <div class="logo">ChatGPT</div>
+        <div class="logo">
+            <span>OpenAI</span>
+            <img src="images/openia.png" alt="Logo OpenAI" class="logo-img">
+        </div>
         <nav class="main-nav">
             <ul>
                 <li><a href="index.html">Accueil</a></li>
@@ -20,55 +24,84 @@
     </header>
 
     <main class="content">
-        <h1>Comment fonctionne ChatGPT ?</h1>
-        <section class="intro">
-            <p>ChatGPT est un modèle de langage avancé développé par OpenAI. Il utilise l'intelligence artificielle pour comprendre et générer du texte de manière naturelle et fluide.</p>
-        </section>
+        <h1>Methods</h1>
+        <p>
+            Nous avons formé ce modèle à l'aide de l'apprentissage par renforcement à partir de la rétroaction humaine (RLHF), en utilisant les mêmes méthodes que
+            InstructGPT⁠, mais avec de légères différences dans la configuration de la collecte de données. Nous avons formé un premier modèle en utilisant
+            mise au point supervisée : des formateurs humains en IA ont fourni des conversations dans lesquelles ils ont joué des deux côtés : l'utilisateur
+            et un assistant IA. Nous avons donné aux formateurs accès à des suggestions rédigées sous forme de modèles pour les aider à composer leur
+            réponses. Nous avons mélangé ce nouvel ensemble de données de dialogue avec l'ensemble de données InstructGPT, que nous avons transformé en un
+            format de dialogue.
 
-        <section class="how-it-works">
-            <h2>Les bases du fonctionnement</h2>
-            <ul>
-                <li>
-                    <strong>Formation par apprentissage :</strong> ChatGPT a été entraîné sur d'énormes quantités de données textuelles provenant d'Internet. Cela lui permet de répondre à une variété de questions et de produire des textes qui ressemblent à ceux écrits par des humains.
-                </li>
-                <li>
-                    <strong>Dialogue interactif :</strong> Le modèle est conçu pour comprendre le contexte des conversations et répondre de manière adaptée. Par exemple, il peut répondre à des questions, fournir des explications, ou même participer à des discussions créatives.
-                </li>
-                <li>
-                    <strong>Amélioration continue :</strong> OpenAI utilise les retours des utilisateurs pour améliorer ChatGPT, corriger ses faiblesses, et l'aider à mieux comprendre des situations complexes.
-                </li>
-            </ul>
-        </section>
+            <br><br>
+            Pour créer un modèle de récompense pour l'apprentissage par renforcement, nous devions collecter des données de comparaison, consistant
+            de deux ou plusieurs réponses modèles classées par qualité. Pour collecter ces données, nous avons pris des conversations que l'IA
+            les formateurs ont eu avec le chatbot. Nous avons sélectionné au hasard un modèle de message écrit, échantillonné plusieurs alternatives
+            réussites, et les formateurs en IA les ont classés. En utilisant ces modèles de récompense, nous pouvons affiner le modèle en utilisant
+            Optimisation de la politique proximale⁠. Nous avons effectué plusieurs itérations de ce processus.</h1>
+        </p>
+        <img src="images/ex1.png" alt="" class="gougou">
+        <p>ChatGPT is fine-tuned from a model in the GPT-3.5 series, which finished training in early 2022. You can
+            learn more about the 3.5 series here⁠(opens in a new window). ChatGPT and GPT-3.5 were trained on an Azure
+            AI supercomputing infrastructure.
+        </p>
 
-        <section class="capabilities">
-            <h2>Ce que ChatGPT peut faire</h2>
-            <p>ChatGPT peut être utilisé pour :</p>
-            <ul>
-                <li>Répondre à des questions sur divers sujets.</li>
-                <li>Aider à rédiger des textes, e-mails, ou articles.</li>
-                <li>Créer des idées ou des concepts pour des projets créatifs.</li>
-                <li>Apprendre et expliquer des concepts complexes de manière simple.</li>
-            </ul>
-        </section>
+        <h1>Limitations</h1>
+        <p> ChatGPT sometimes writes plausible-sounding but incorrect or nonsensical answers. Fixing this issue is
+            challenging, as: (1) during RL training, there’s currently no source of truth; (2) training the model to be
+            more cautious causes it to decline questions that it can answer correctly; and (3) supervised training
+            misleads the model because the ideal answer depends on what the model knows⁠(opens in a new window), rather
+            than what the human demonstrator knows.
 
-        <section class="limitations">
-            <h2>Les limites de ChatGPT</h2>
-            <p>Bien que ChatGPT soit puissant, il a certaines limites :</p>
-            <ul>
-                <li>Il peut parfois fournir des réponses incorrectes ou incomplètes.</li>
-                <li>Il n’a pas de conscience ni de compréhension réelle du monde.</li>
-                <li>Il peut être biaisé en fonction des données sur lesquelles il a été formé.</li>
-            </ul>
-        </section>
+            ChatGPT is sensitive to tweaks to the input phrasing or attempting the same prompt multiple times. For
+            example, given one phrasing of a question, the model can claim to not know the answer, but given a slight
+            rephrase, can answer correctly.
 
-        <section class="conclusion">
-            <h2>Pourquoi utiliser ChatGPT ?</h2>
-            <p>ChatGPT est un outil innovant qui simplifie l'accès à l'information et automatise des tâches textuelles. Que vous soyez étudiant, professionnel ou simplement curieux, il peut vous aider à gagner du temps et à explorer des idées nouvelles.</p>
-        </section>
+            The model is often excessively verbose and overuses certain phrases, such as restating that it’s a language
+            model trained by OpenAI. These issues arise from biases in the training data (trainers prefer longer answers
+            that look more comprehensive) and well-known over-optimization issues.1, 2
+
+            Ideally, the model would ask clarifying questions when the user provided an ambiguous query. Instead, our
+            current models usually guess what the user intended.
+
+            While we’ve made efforts to make the model refuse inappropriate requests, it will sometimes respond to
+            harmful instructions or exhibit biased behavior. We’re using the Moderation API⁠ to warn or block certain
+            types of unsafe content, but we expect it to have some false negatives and positives for now. We’re eager to
+            collect user feedback to aid our ongoing work to improve this system.</p>
+        <h1>Iterative deployment</h1>
+
+        <p>Today’s research release of ChatGPT is the latest step in OpenAI’s iterative deployment⁠ of increasingly safe
+            and useful AI systems. Many lessons from deployment of earlier models like GPT-3 and Codex have informed the
+            safety mitigations in place for this release, including substantial reductions in harmful and untruthful
+            outputs achieved by the use of reinforcement learning from human feedback (RLHF).
+        </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </main>
+
+
+
 
     <footer class="footer">
         <p>&copy; 2024 OpenAI. Tous droits réservés.</p>
     </footer>
 </body>
+
 </html>
+
+
+
+
