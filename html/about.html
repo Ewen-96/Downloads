@@ -3,31 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À propos de ChatGPT</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Page de Discussion</title>
+    <link rel="stylesheet" href="style.css"> <!-- Lien vers le fichier CSS -->
 </head>
-<body class="about-page">
-    <header class="main-header">
-        <div class="logo">
-            <span>OpenAI</span>
-            <img src="images/openia.png" alt="Logo OpenAI" class="logo-img">
+<body>
+    <div class="chat-container">
+        <div class="message bot">
+            <img src="https://via.placeholder.com/30" alt="Bot Logo">
+            <div class="bubble">Bonjour, comment puis-je vous aider ?</div> <!-- Texte ajouté -->
         </div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="chatgpt.html">Fonctionnement</a></li>
-                <li><a href="about.html">À propos</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <h1>À propos de ChatGPT</h1>
-        <p>Je suis un modèle de langage conçu pour interagir de manière conversationnelle et répondre à vos questions. J'ai été créé par OpenAI pour simplifier l'accès aux informations complexes.</p>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 ChatGPT</p>
-    </footer>
+        <div class="message user">
+            <div class="bubble">Salut !</div> <!-- Texte ajouté -->
+        </div>
+        <div class="message bot">
+            <img src="https://via.placeholder.com/30" alt="Bot Logo">
+            <div class="bubble">Je suis un chatbot.</div> <!-- Texte ajouté -->
+        </div>
+        <div class="message user">
+            <div class="bubble">Super, quel est ton nom ?</div> <!-- Texte ajouté -->
+        </div>
+        <div class="message bot">
+            <img src="https://via.placeholder.com/30" alt="Bot Logo">
+            <div class="bubble">Je suis BotGPT.</div> <!-- Texte ajouté -->
+        </div>
+    </div>
+    <div class="input-container">
+        <input type="text" placeholder="Écrire un message...">
+        <button>Envoyer</button>
+    </div>
 </body>
 </html>

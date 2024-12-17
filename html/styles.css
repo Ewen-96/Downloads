@@ -54,10 +54,6 @@ body {
     transition: color 0.3s ease;
 }
 
-.main-nav a:hover, .navigation a:hover {
-    color: #0078d7;
-}
-
 /* Styles spécifiques pour index.html */
 body.index-page .hero-section {
     text-align: center;
@@ -269,6 +265,16 @@ footer {
     color: #666;
     border-top: 1px solid #ddd;
 }
+html, body {
+    height: 100%; /* Assurez-vous que le body occupe toute la hauteur de l'écran */
+    display: flex;
+    flex-direction: column; /* Organise le contenu en colonne */
+}
+
+/* Le main prendra toute la hauteur disponible sauf celle du footer */
+main {
+    flex: 10; /* Cela permet à main de remplir l'espace restant */
+}
 
 /* Animation d'écran de transition */
 body::before {
@@ -294,3 +300,83 @@ body::before {
     }
 }
 
+/* Styles pour les petits écrans */
+@media screen and (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .logo span {
+        font-size: 1.2rem;
+    }
+
+    .logo-img {
+        width: 30px;
+    }
+
+    .main-nav ul {
+        display: block;
+        margin-top: 1rem;
+    }
+
+    .main-nav a {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    body.index-page .hero-section {
+        padding: 3rem 1.5rem;
+    }
+
+    body.index-page .btn-primary,
+    body.index-page .btn-secondary {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    body.chatgpt-page main {
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+
+    body.about-page main {
+        padding: 1.5rem;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+
+     .zoomable-image {
+        transform: scale(1); /* Désactiver le zoom pour les petits écrans */
+    }
+}
+
+/* Styles pour les très petits écrans */
+@media screen and (max-width: 480px) {
+    .main-header {
+        padding: 0.5rem;
+    }
+
+    .logo span {
+        font-size: 1rem;
+    }
+
+    .logo-img {
+        width: 25px;
+    }
+
+    .main-nav a {
+        font-size: 0.9rem;
+    }
+
+    .btn-primary, .btn-secondary {
+        font-size: 0.9rem;
+    }
+
+    .zoomable-image {
+        transform: scale(1); /* Désactiver le zoom pour les petits écrans */
+    }
+}
