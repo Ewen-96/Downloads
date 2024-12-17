@@ -270,14 +270,6 @@ footer {
     border-top: 1px solid #ddd;
 }
 
-/* Styles généraux */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-}
-
 /* Animation d'écran de transition */
 body::before {
     content: '';
@@ -288,7 +280,7 @@ body::before {
     height: 100%;
     background-color: black;
     z-index: 1000;
-    animation: screenTransition 3s forwards; /* L'animation qui va faire disparaitre l'écran noir */
+    animation: screenTransition 2s forwards; /* L'animation qui va faire disparaitre l'écran noir */
 }
 
 /* Animation de disparition de l'écran noir */
@@ -302,31 +294,3 @@ body::before {
     }
 }
 
-/* Style du contenu de la page */
-header, main, footer {
-    z-index: 1; /* S'assurer que le contenu se trouve derrière l'écran noir */
-    position: relative; /* Positionnement relatif pour être sûr que le contenu est géré correctement */
-    padding: 20px;
-    text-align: center;
-}
-
-header {
-    background: #333;
-    color: white;
-    padding: 1rem;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 10px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
