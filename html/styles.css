@@ -227,7 +227,17 @@ body.chatgpt-page .btn-secondary:hover {
     background: #0078d7;
     color: #fff;
 }
+.zoomable-image {
+    width: 100%; /* S'adapte à la taille du conteneur */
+    transition: transform 0.3s ease; /* Animation fluide */
+    cursor: pointer; /* Indicateur de clic */
+}
 
+/* Effet de zoom au survol */
+.zoomable-image:hover {
+    transform: scale(2); /* Agrandit l'image à 1,5x */
+    z-index: 10; /* Met l'image au-dessus des autres éléments */
+}
 
 /* Styles spécifiques pour about.html */
 body.about-page main {
@@ -258,4 +268,65 @@ footer {
     font-size: 0.9rem;
     color: #666;
     border-top: 1px solid #ddd;
+}
+
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Animation d'écran de transition */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1000;
+    animation: screenTransition 3s forwards; /* L'animation qui va faire disparaitre l'écran noir */
+}
+
+/* Animation de disparition de l'écran noir */
+@keyframes screenTransition {
+    0% {
+        opacity: 1; /* Commence avec l'écran noir */
+    }
+    100% {
+        opacity: 0; /* Devient transparent à la fin */
+        visibility: hidden; /* Cache l'écran noir après l'animation */
+    }
+}
+
+/* Style du contenu de la page */
+header, main, footer {
+    z-index: 1; /* S'assurer que le contenu se trouve derrière l'écran noir */
+    position: relative; /* Positionnement relatif pour être sûr que le contenu est géré correctement */
+    padding: 20px;
+    text-align: center;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
 }
